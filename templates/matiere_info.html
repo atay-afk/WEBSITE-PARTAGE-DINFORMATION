@@ -1,0 +1,261 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'plugins/images/favicon.png' %}">
+    <title>Emploi</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Menu CSS --
+    <link href="{% static 'plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css' %}" rel="stylesheet">
+   animation CSS -->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="{% static 'css/colors/default.css' %}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <link rel="stylesheet" href="{% static 'css1/jquery.dataTables.min.css' %}">
+       <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+[endif]-->
+    <style type="text/css">
+.table-data2.table tbody tr td:last-child {
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+    padding-right: 35px;
+}
+
+.table-data2.table tbody td {
+    font-size: 14px;
+    color: #808080;
+    vertical-align: middle;
+    padding: 25px 40px;
+    padding-right: 10px;
+    border: none;
+}
+
+.table-data2.table tbody td.desc {
+    color: #4272d7;
+}
+
+.table-data2 .spacer {
+    height: 5px;
+    background: transparent;
+}
+</style>
+</head>
+
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+       <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    <a class="logo" href="#">
+
+
+
+
+                            <!--This is light logo text--><img src="{% static 'images/icons/diplome.svg' %}"   width="130" height="80"/>
+                       </a>
+                </div>
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
+                            href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                    </li>
+                    <li>
+                        <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i
+                                    class="fa fa-search"></i></a> </form>
+                    </li>
+                    <li>
+                        <a class="profile-pic" href="logout"><b class="hidden-xs">Déconnexion </b></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+    <br><br>
+           <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span
+                            class="hide-menu">Navigation</span></h3>
+                </div>
+                <ul class="nav" id="side-menu">
+                      <li style="padding: 70px 0 0;">
+
+                    </li>
+                    <li style="padding: 70px 0 0;">
+                        <a href="#" class="waves-effect"><i class="fa fa-clock-o fa-fw"
+                                aria-hidden="true"></i>Tableau de bord</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'profile' %}" class="waves-effect"><i class="fa fa-user fa-fw"
+                                aria-hidden="true"></i>Mon compte</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'emploi'%}" class="waves-effect"><i class="fa fa-calendar-o fa-fw"
+                                aria-hidden="true"></i>Emploi</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'cours' %}" class="waves-effect"><i class="fa fa-graduation-cap fa-fw"
+                                aria-hidden="true"></i>Cours</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'exam' %}" class="waves-effect"><i class="fa fa-font fa-fw"
+                                aria-hidden="true"></i>Exams</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'pfe_etd' %}" class="waves-effect"><i class="fa fa-globe fa-fw"
+                                aria-hidden="true"></i>PFE</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'rc' %}" class="waves-effect"><i class="fa fa-info-circle fa-fw"
+                                aria-hidden="true"></i>Ressources</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">{{mat.nom_matiere}}</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                        <ol class="breadcrumb">
+                            <li><a href="{% url 'emploi' %}">Emploi</a></li>
+                            <li class="active">{{mat.nom_matiere}}</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+
+   <div class="row">
+                         <!-- Data Table area Start-->
+
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="data-table-list">
+
+                        <div class="table-responsive">
+                            <table id="data-table-basic" class="table table-striped">
+
+                              <tbody>
+
+                                <tr>
+                                <th><strong>Le Nom de Matiere</strong> : &nbsp; {{mat.nom_matiere}}</th>
+                                <th></th>
+                                </tr>
+
+                                <tr>
+                                <th><strong>La Description</strong> :&nbsp;&nbsp;{{mat.description}}</th>
+                                <th></th>
+                                </tr>
+
+                                <tr>
+                                <th><strong>Le Module</strong> :&nbsp;&nbsp;{{mat.module}}</th>
+                                <th></th>
+                                </tr>
+
+                              
+
+                              </tbody>
+
+
+                            </table>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+    <!-- Data Table area End-->
+
+   </div>
+                </div>
+
+
+     <a href="{% url 'emploi' %}" style="padding-left:27px"><button type="button" class="btn btn-info"  >retour a l'emploi</button></a>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="{% static 'plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js' %}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'js/waves.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/custom.min.js' %}"></script>
+  <!-- ------------------------------------------------------------------- -->
+    <!-- jquery
+		============================================ -->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="js/wow.min.js"></script>
+
+
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Data Table JS
+		============================================ -->
+    <script src="{% static 'js/data-table/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/data-table/data-table-act.js' %}"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

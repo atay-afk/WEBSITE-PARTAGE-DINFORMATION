@@ -1,0 +1,79 @@
+{% extends 'create-update.html'%}
+
+
+
+{% block title%} ressource {% endblock%}
+
+{% block content%}
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">creer cours</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li class="active">creer cours</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <!-- .row -->
+                <div class="row">
+
+                    <div class="col-md-8 col-xs-12">
+                        <div class="white-box">
+                            <form  method="post"  class="form-horizontal form-material" enctype="multipart/form-data">
+                                	 {% csrf_token %}
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">le fichier</label>
+                                     <div class="col-md-12">
+                                       {{form.rc_fichier}}
+                                     </div>
+                                   </div>
+                                   <div class="form-group">
+                                     <label class="col-md-12">la description</label>
+                                     <div class="col-md-12">
+                                       {{form.rc_desc}}
+                                     </div>
+                                   </div>
+                                   <div class="form-group">
+                                     <label class="col-md-12">la matiere</label>
+                                     <div class="col-md-12">
+                                       <select  name="mat" class="form-control form-control-line">
+                                       {% for item in matiere%}
+                                      <option value="{{item}}" class="form-control " >{{item}}</option>
+                                       {% endfor %}
+                                       </select>
+                                     </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">l'enseignant</label>
+                                     <div class="col-md-12">
+                                       {{form.enseignant}}
+                                     </div>
+                                   </div>
+
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button  type="submit" class="btn btn-success">ajouter</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    {% endblock %}

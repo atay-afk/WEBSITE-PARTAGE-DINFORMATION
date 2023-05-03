@@ -1,0 +1,122 @@
+{% extends 'admin-template.html'%}
+
+
+
+{% block title%} Exames {% endblock%}
+
+{% block content%}
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row bg-title">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <h4 class="page-title">exam</h4>
+                        </div>
+                        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                            <ol class="breadcrumb">
+                                <li><a href="#">Tableau de bord</a></li>
+                                <li class="active">exam</li>
+                            </ol>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+
+
+       <div class="row">
+                             <!-- Data Table area Start-->
+
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="data-table-list">
+                          <div class="basic-tb-hd">
+
+                          <a href="{% url 'create_exam' classee.id %}" class="btn btn-success"> ajouter exam</a>
+
+                          <div class="basic-tb-hd" style="text-align:center;">
+                          <form class="form" method="post" name="myform">
+                            {% csrf_token %}
+                            <select class="form-select" aria-label="Default select example" name="cls" onchange="submitform();" >
+                              <option selected> choisissez la classe</option>
+                              {% for item in classe %}
+                              <option value="{{item}}">{{item}}</option>
+                              {% endfor %}
+                          </select>
+
+                          </form>
+
+        <br>
+
+                          la classe : <span style="color:blue">{{classee}}</span>
+                          </div>
+                          </div>
+
+                            <div class="table-responsive">
+                                <table id="data-table-basic" class="table table-striped">
+                                    <thead>
+                                        <tr>
+
+                                            <th>classe</th>
+                                            <th>matiere</th>
+                                            <th>salle</th>
+                                              <th>durée</th>
+                                            <th>seance</th>
+                                            <th>date</th>
+                                            <th></th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {%for item in exam %}
+                                        <tr>
+
+                                              <td> {{item.classe}}</td>
+                                              <td> {{item.matiere}}</td>
+                                              <td> {{item.salle}}</td>
+                                              <td>{{item.duree}} h</td>
+                                              <td> {{item.seance}}</td>
+                                              <td> {{item.date}}</td>
+
+                                              <td>
+                                                <a href="{% url 'update_exam' classee.id item.id %}"> <i class="fas fa-edit"></i> </a>
+                                                <a class="text-danger" href="{% url 'delete_exam' item.id %}"> <i class="fas fa-trash-alt"></i> </a>
+                                              </td>
+
+
+
+                                        </tr>
+                                      {% endfor %}
+                                    </tbody>
+
+                                               <tfoot>
+                                                 <tr>
+                                                   <th>classe</th>
+                                                   <th>matiere</th>
+                                                   <th>salle</th>
+                                                   <th>durée</th>
+                                                   <th>seance</th>
+                                                   <th>date</th>
+                                                   <th></th>
+
+                                                 </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+        <!-- Data Table area End-->
+       </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                function submitform()
+                {
+                  document.myform.submit();
+                }
+
+                </script>
+                <!-- /.container-fluid -->
+
+            </div>
+            {% endblock %}

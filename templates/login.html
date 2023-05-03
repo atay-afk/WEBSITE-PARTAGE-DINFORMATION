@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gestion des cours</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images3/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts3/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts3/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor3/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css3/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css3/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #666666;">
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form method="post" action="sign" class="login100-form validate-form">
+					     	 {% csrf_token %}
+
+					<span class="login100-form-title p-b-43">
+				<img src="{% static 'images/icons/diplome.svg' %}"  width="400" height="170"/>
+					</span>
+
+
+
+
+<select name="qui" id="select" class="form-control form-control-lg">
+  <option >vous êtes?</option>
+	<option value="2">Enseignant</option>
+	<option value="1">Etudiant</option>
+</select>
+</br>
+
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="em">
+
+						<span class="label-input100">Email</span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+
+
+
+
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+
+				</form>
+
+				<div class="login100-more" >		<img src="{% static 'images/icons/rrro.png' %}"  width="880" height="735"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor3/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor3/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor3/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor3/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor3/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor3/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor3/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor3/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js3/main.js' %}"></script>
+
+</body>
+</html>

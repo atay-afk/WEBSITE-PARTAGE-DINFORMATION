@@ -1,0 +1,119 @@
+{% extends 'admin-template.html'%}
+
+
+
+{% block title%} Pfe {% endblock%}
+
+{% block content%}
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row bg-title">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <h4 class="page-title">pfe</h4>
+                        </div>
+                        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                            <ol class="breadcrumb">
+                                <li><a href="#">Tableau de bord</a></li>
+                                <li class="active">pfe</li>
+                            </ol>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+
+
+       <div class="row">
+                             <!-- Data Table area Start-->
+
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="data-table-list">
+                          <div class="basic-tb-hd">
+
+                          <a href="{% url 'create_pfe' filieree.id %}" class="btn btn-success"> ajouter pfe</a>
+
+                          <div class="basic-tb-hd" style="text-align:center;">
+                          <form class="form" method="post" name="myform">
+                            {% csrf_token %}
+                            <select class="form-select" aria-label="Default select example" name="fill" onchange="submitform();" >
+                              <option selected> choisissez la filiere</option>
+                              {% for item in filiere %}
+                              <option value="{{item}}">{{item}}</option>
+                              {% endfor %}
+                          </select>
+
+                          </form>
+
+        <br>
+
+                          la Filiere : <span style='color:blue'>{{filieree}}</span>
+                          </div>
+                          </div>
+
+                            <div class="table-responsive">
+                                <table id="data-table-basic" class="table table-striped">
+                                    <thead>
+                                        <tr>
+
+                                            <th>sujet</th>
+                                            <th>cahier de charge</th>
+                                            <th>le delai</th>
+                                            <th>l'encadrant</th>
+                                            <th>la filiere</th>
+                                            <th></th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {%for item in pfe %}
+                                        <tr>
+
+                                              <td> {{item.sujet}}</td>
+                                              <td><object data="{{item.cahier_charg.url }}" type="application/pdf" width="300" height="200" >
+                                                <a href="{{item.cahier_charg.url }}">{{item.cahier_charg}}</a>
+                                              </object></td>
+                                              <td> {{item.delai}}</td>
+                                              <td> {{item.encadrant}}</td>
+                                              <td> {{item.filiere}}</td>
+
+                                              <td>
+                                                <a href="{% url 'update_pfe' filieree.id item.id %}"> <i class="fas fa-edit"></i> </a>
+                                                <a class="text-danger" href="{% url 'delete_pfe' item.id %}"> <i class="fas fa-trash-alt"></i> </a>
+                                              </td>
+
+
+
+                                        </tr>
+                                      {% endfor %}
+                                    </tbody>
+
+                                               <tfoot>
+                                                 <tr>
+                                                   <th>sujet</th>
+                                                   <th>cahier_charg</th>
+                                                   <th>delai</th>
+                                                   <th>encadrant</th>
+                                                   <th>filiere</th>
+                                                   <th></th>
+
+                                                 </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+        <!-- Data Table area End-->
+       </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                function submitform()
+                {
+                  document.myform.submit();
+                }
+
+                </script>
+
+                <!-- /.container-fluid -->
+{% endblock %}

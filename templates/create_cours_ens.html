@@ -1,0 +1,109 @@
+{% extends 'ens-create-update.html' %}
+{% block content%}
+
+
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">ajouter cours</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li class="active">ajouter cours</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <!-- .row -->
+                <div class="row">
+
+                    <div class="col-md-8 col-xs-12">
+                        <div class="white-box">
+                            <form  method="post" class="form-horizontal form-material">
+                                	 {% csrf_token %}
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">cours type</label>
+                                     <div class="col-md-12">
+                                       {{form.cours_type}}
+                                     </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">la matiere</label>
+                                     <div class="col-md-12">
+                                       <select  name="mat" class="form-control form-control-line">
+                                       {% for item in all_mat%}
+                                      <option value="{{item}}" class="form-control " >{{item}}</option>
+                                       {% endfor %}
+                                       </select>
+                                     </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">salle</label>
+                                     <div class="col-md-12">
+                                       {{form.salle}}
+                                     </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">la classe</label>
+                                     <div class="col-md-12">
+                                       <select  name="clas" class="form-control form-control-line">
+                                       {% for item in classe%}
+                                      <option value="{{item}}" class="form-control " >{{item}}</option>
+                                       {% endfor %}
+                                       </select>
+                                     </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">groupe</label>
+                                     <div class="col-md-12">
+                                       {{form.groupe}}
+                                     </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">filiere</label>
+                                     <div class="col-md-12">
+                                       {{form.filiere}}
+                                     </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                     <label class="col-md-12"> la seance</label>
+                                     <div class="col-md-12">
+                                       {{form.seance}}
+                                     </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                     <label class="col-md-12">date</label>
+                                     <div class="col-md-12">
+                                       {{form.date}}
+                                     </div>
+                                   </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button  type="submit" class="btn btn-success">ajouter</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    {% endblock %}

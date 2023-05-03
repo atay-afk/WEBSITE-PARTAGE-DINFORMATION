@@ -1,0 +1,92 @@
+{% extends 'admin-template.html'%}
+
+
+
+{% block title%} Matieres {% endblock%}
+
+{% block content%}
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row bg-title">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <h4 class="page-title">matiere</h4>
+                        </div>
+                        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                            <ol class="breadcrumb">
+                                <li><a href="#">Tableau de bord</a></li>
+                                <li class="active">matiere</li>
+                            </ol>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+
+
+       <div class="row">
+                             <!-- Data Table area Start-->
+
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="data-table-list">
+                          <div class="basic-tb-hd">
+
+                          <a href="{% url 'create_matiere' %}" class="btn btn-success"> Creer matiere</a>
+                          </div>
+
+                            <div class="table-responsive">
+                                <table id="data-table-basic" class="table table-striped">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Nome de Matiere</th>
+                                            <th>description</th>
+                                            <th>Le Module</th>
+                                              <th>La classe</th>
+                                            <th>L'Enseignant'</th>
+                                            <th></th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {%for item in matiere %}
+                                        <tr>
+
+                                              <td> {{item.nom_matiere}}</td>
+                                              <td> {{item.description}}</td>
+                                              <td> {{item.module}}</td>
+                                              <td> {{item.classe}}</td>
+                                              <td> {{item.enseignant}}</td>
+                                              <td>
+                                                <a href="{% url 'update_matiere' item.id %}"> <i class="fas fa-edit"></i> </a>
+                                                <a class="text-danger" href="{% url 'delete_matiere' item.id %}"> <i class="fas fa-trash-alt"></i> </a>
+                                              </td>
+
+
+
+                                        </tr>
+                                      {% endfor %}
+                                    </tbody>
+
+                                               <tfoot>
+                                                 <tr>
+                                                   <th>Nome de Matiere</th>
+                                                   <th>description</th>
+                                                   <th>Le Module</th>
+                                                    <th>La classe</th>
+                                                   <th>L'Enseignant'</th>
+                                                   <th></th>
+                                                 </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+        <!-- Data Table area End-->
+       </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+  {% endblock %}

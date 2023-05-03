@@ -1,0 +1,95 @@
+{% extends 'ens-template.html' %}
+
+{% block content%}
+
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Cours</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                        <ol class="breadcrumb">
+                            <li><a href="#">Tableau de bord</a></li>
+                            <li class="active">Cours</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+
+   <div class="row">
+                         <!-- Data Table area Start-->
+
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="data-table-list">
+                        <div class="basic-tb-hd">
+
+                        <h2> Filiére: {{filiere}}</h2>
+                        <a href="{% url 'create_cours_ens' %}" class="btn btn-success">ajouter cours</a>
+
+                        </div>
+                        <div class="table-responsive">
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Classe</th>
+                                        <th>Matiére</th>
+                                        <th>type</th>
+                                        <th>Salle</th>
+                                        <th>Séance</th>
+                                        <th>Date</th>
+                                        <th>Enseignant</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+ {%for item in cours %}
+                                    <tr>
+                                          <td> {{item.classe}}</td>
+                                          <td>{{item.matiere}}</td>
+                                          <td> {{item.cours_type}}</td>
+                                          <td>{{item.salle}}</td>
+                                          <td>{{item.seance}}</td>
+                                          <td>{{item.date}}</td>
+                                          <td>{{item.matiere.enseignant}}</td>
+                                          {% if item.matiere.enseignant_id == request.user.enseignant.id %}
+                                          <td>
+                                            <a href="{% url 'update_cours_ens' item.id %}"> <i class="fas fa-edit"></i> </a>
+                                            <a class="text-danger" href="{% url 'delete_cours_ens' item.id %}"> <i class="fas fa-trash-alt"></i> </a>
+                                          </td>
+                                          {%else%}
+                                          <td></td>
+                                          {% endif %}
+
+                                    </tr>
+   {% endfor %}
+                                </tbody>
+                                           <tfoot>
+                                    <tr>
+
+                                     <th>Classe</th>
+                                        <th>Matiére</th>
+                                        <th>type</th>
+                                        <th>Salle</th>
+                                        <th>Séance</th>
+                                        <th>Date</th>
+                                        <th>Enseignant</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+    <!-- Data Table area End-->
+   </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        {% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'create-update.html'%}
+
+
+
+{% block title%} module {% endblock%}
+
+{% block content%}
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">creer module</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li class="active">creer module</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <!-- .row -->
+                <div class="row">
+
+                    <div class="col-md-8 col-xs-12">
+                        <div class="white-box">
+                            <form  method="post"  class="form-horizontal form-material">
+                                	 {% csrf_token %}
+
+                                  <div class="form-group">
+                                    <label class="col-md-12">Nom du module</label>
+                                    <div class="col-md-12">
+                                      {{form.nom_module}}
+                                    </div>
+                                  </div>
+
+
+                                 <div class="form-group">
+                                    <label class="col-md-12">Le porcentage</label>
+                                    <div class="col-md-12">
+                                      {{form.porcentage}}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                   <label class="col-md-12">La classe</label>
+                                   <div class="col-md-12">
+                                     {{form.classe}}
+                                   </div>
+                               </div>
+
+
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button  type="submit" class="btn btn-success">creer</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+  {% endblock %}

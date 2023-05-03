@@ -1,0 +1,83 @@
+{% extends 'create-update.html'%}
+
+
+
+{% block title%} Pfe {% endblock%}
+
+{% block content%}
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">ajouter pfe</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li class="active">creer pfe</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <!-- .row -->
+                <div class="row">
+
+                    <div class="col-md-8 col-xs-12">
+                        <div class="white-box">
+                            <form  method="post"  class="form-horizontal form-material" enctype="multipart/form-data">
+                                	 {% csrf_token %}
+
+
+                                  <div class="form-group">
+                                    <label class="col-md-12">Le sujet</label>
+                                    <div class="col-md-12">
+                                      {{form.sujet}}
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label class="col-md-12">le cahier de charge</label>
+                                    <div class="col-md-12">
+                                      {{form.cahier_charg}}
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label class="col-md-12">delai</label>
+                                    <div class="col-md-12">
+                                      {{form.delai}}
+                                    </div>
+                                  </div>
+
+
+                                  <div class="form-group">
+                                    <label class="col-md-12">l'encadrant</label>
+                                    <div class="col-md-12">
+                                      <select  name="ens" class="form-control form-control-line">
+                                      {% for item in enseignant%}
+                                     <option value="{{item}}" class="form-control " >{{item}}</option>
+                                      {% endfor %}
+                                      </select>
+                                    </div>
+                                  </div>
+
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button  type="submit" class="btn btn-success">ajouter</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    {% endblock %}
